@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1a1a2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+#game-container {
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#game-canvas {
+    display: block;
+    background: #0a0a1a;
+    cursor: crosshair;
+}
+
+#ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    padding: 20px;
+}
+
+#survival-stats {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #4a4a6a;
+    min-width: 200px;
+}
+
+.stat-bar {
+    margin-bottom: 12px;
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.stat-bar span {
+    display: inline-block;
+    width: 60px;
+    margin-right: 10px;
+}
+
+.bar-container {
+    display: inline-block;
+    width: 120px;
+    height: 12px;
+    background: #2a2a3a;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 100%;
+    background: #4ecdc4;
+    transition: width 0.3s ease;
+}
+
+#health-bar { background: #ff6b6b; }
+#hunger-bar { background: #feca57; }
+#thirst-bar { background: #48dbfb; }
+#fatigue-bar { background: #9980FA; }
+
+#dialogue-box {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    background: rgba(10, 10, 20, 0.95);
+    border: 2px solid #6c5ce7;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    pointer-events: auto;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.3);
+}
+
+#dialogue-box.hidden {
+    display: none;
+}
+
+#dialogue-text {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+#dialogue-options button {
+    background: #2a2a3a;
+    color: #fff;
+    border: 1px solid #6c5ce7;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+#dialogue-options button:hover {
+    background: #6c5ce7;
+    transform: translateY(-2px);
+}
+
+#area-name {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border-left: 4px solid #6c5ce7;
+}
+
+/* Quest notifications animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Quest log specific styles */
+.quest-objective-complete {
+    color: #4ecdc4;
+    text-decoration: line-through;
+}
+
+.quest-reward-item {
+    display: inline-block;
+    background: #4a4a6a;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+/* Quest markers on map/minimap */
+.quest-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #feca57;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

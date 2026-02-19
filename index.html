@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realm of Echoes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas" width="1200" height="700"></canvas>
+        
+        <!-- UI Overlay -->
+        <div id="ui-overlay">
+            <div id="survival-stats">
+                <div class="stat-bar">
+                    <span>❤️ Health</span>
+                    <div class="bar-container"><div id="health-bar" class="bar-fill"></div></div>
+                </div>
+                <div class="stat-bar">
+                    <span>🍖 Hunger</span>
+                    <div class="bar-container"><div id="hunger-bar" class="bar-fill"></div></div>
+                </div>
+                <div class="stat-bar">
+                    <span>💧 Thirst</span>
+                    <div class="bar-container"><div id="thirst-bar" class="bar-fill"></div></div>
+                </div>
+                <div class="stat-bar">
+                    <span>😴 Fatigue</span>
+                    <div class="bar-container"><div id="fatigue-bar" class="bar-fill"></div></div>
+                </div>
+            </div>
+            
+            <div id="dialogue-box" class="hidden">
+                <p id="dialogue-text"></p>
+                <div id="dialogue-options"></div>
+            </div>
+            
+            <div id="area-name"></div>
+        </div>
+    </div>
+    
+    <script src="js/core/input.js"></script>
+    <script src="js/core/camera.js"></script>
+    <script src="js/core/collision.js"></script>
+    <script src="js/core/gameLoop.js"></script>
+    <script src="js/entities/player.js"></script>
+    <script src="js/entities/npc.js"></script>
+    <script src="js/world/tile.js"></script>
+    <script src="js/world/map.js"></script>
+    <script src="js/systems/survival.js"></script>
+    <script src="js/systems/dialogue.js"></script>
+    <script src="js/systems/quest.js"></script>
+    <script src="js/data/lore.js"></script>
+    <script src="js/data/dialogues.js"></script>
+    <script src="js/data/quests.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
